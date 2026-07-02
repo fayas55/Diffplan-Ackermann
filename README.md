@@ -1,15 +1,15 @@
-# 🌌 DiffPlan-Ackermann: Generative Trajectory Field Denoising for Autonomy
+# DiffPlan-Ackermann: Generative Trajectory Field Denoising for Autonomy
 
 A high-performance motion planning framework that frames path generation as a **1D Denoising Diffusion Probabilistic Process (DDPM)**. This architecture maps optimal trajectories through a dense 20-obstacle maze simultaneously, respecting non-holonomic vehicle kinematics.
 
 ---
 
-## 🛑 The Core Autonomy Problem
+## The Core Autonomy Problem
 Traditional trajectory planners (like RRT*, Hybrid A*, or sequential Model Predictive Control) calculate paths as a single, sequential string of coordinates. They struggle in dense, dynamic environments because:
 1. **High Sequential Overhead:** Evaluating thousands of step-by-step sequential line-of-sight checks through moving hazards creates a processing bottleneck.
 2. **Brittleness under Shifting Constraints:** If a scene suddenly changes, the old path must be completely thrown out, requiring a slow optimization recalculation from scratch.
 
-## 🚀 The DiffPlan Breakthrough
+## The DiffPlan Breakthrough
 **DiffPlan-Ackermann** bypasses the sequential search bottleneck by treating trajectory synthesis as a global generative field problem. 
 
 Instead of building a path piece-by-piece, the engine drops a macro-bypassing guided trajectory canvas stretching from start to see the end point right away. Over a series of parallel denoising step schedules, it updates all 100 path coordinates simultaneously in a single loop pass:
@@ -20,7 +20,7 @@ By optimizing all 100 path coordinates together in a single loop pass rather tha
 
 ---
 
-## 📐 Algorithmic Pipeline & Math
+## Algorithmic Pipeline & Math
 
 ```text
 [ Guided Base Spline ] ──> [ Triple-Pass Force Field ] ──> [ 1D Temporal Smooth ] ──> [ Zero-Collision Path ]
@@ -42,7 +42,7 @@ Where α is an iterative learning scheduling decay (α₀ = 0.50 → 0.0). This 
 
 ---
 
-## 📦 Workspace Repository Structure
+## Workspace Repository Structure
 ```text
 DiffPlan-Ackermann/
 │
@@ -59,7 +59,7 @@ DiffPlan-Ackermann/
 └── requirements.txt         # Dependency declarations
 ```
 
-## 🛠️ Environmental Setup & Local Execution
+## Environmental Setup & Local Execution
 
 ### 1. Requirements Installation
 Clone the workspace and install the core numerical computation libraries:
