@@ -1,0 +1,11 @@
+# Python bytecode artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local operating system clutter
+.DS_Store
+Thumbs.db
+
+# Dynamic runtime result tracking caches (Keeps repo code-only)
+results/*.png
